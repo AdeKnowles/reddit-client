@@ -1,5 +1,6 @@
-import './App.css'
-import SearchBar from '../features/searchBar/SearchBar'
+import './App.css';
+import SearchBar from '../features/searchBar/SearchBar';
+import Articles from '../features/articles/Articles';
 
 function App() {
   
@@ -7,6 +8,9 @@ function App() {
     <>
       <div>
         <SearchBar />
+        <main>
+          <Articles />
+        </main>
       </div>
     </>
   )

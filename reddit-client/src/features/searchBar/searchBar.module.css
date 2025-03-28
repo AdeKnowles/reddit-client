@@ -1,0 +1,25 @@
+.searchBar {
+    width: 98%;
+    height: 7rem;
+    display: inline-block;
+    background-color: hsl(16.24,100%,70%);
+    margin: 0;
+    padding: 1%;
+}
+
+.searchBar img {
+  height: 5rem;
+  width: 5rem;
+  float: left;
+}
+
+.searchBar h1 {
+    font-size: 4rem;
+    display: inline;
+    width: 50%;
+}
+
+.searchBar form {
+    width: 100%;
+    /*margin: 1rem auto;*/
+}

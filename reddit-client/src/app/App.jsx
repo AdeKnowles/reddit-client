@@ -1,6 +1,7 @@
 import './App.css';
 import SearchBar from '../features/searchBar/SearchBar';
 import Articles from '../features/articles/Articles';
+import Categories from '../features/categories/Categories';
 
 function App() {
   
@@ -10,6 +11,7 @@ function App() {
         <SearchBar />
         <main>
           <Articles />
+          <Categories />
         </main>
       </div>
     </>

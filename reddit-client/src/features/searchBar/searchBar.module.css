@@ -1,25 +1,39 @@
 .searchBar {
-    width: 98%;
-    height: 7rem;
-    display: inline-block;
+    width: 100%;
+    height: 5rem;
+    display:inline-block;
     background-color: hsl(16.24,100%,70%);
     margin: 0;
-    padding: 1%;
+    padding: 1rem;
 }
 
 .searchBar img {
-  height: 5rem;
-  width: 5rem;
-  float: left;
+    display: inline;
+    height: 5rem;
+    width: 5rem;
+    float: left;
 }
 
 .searchBar h1 {
-    font-size: 4rem;
+    font-size: 5rem;
     display: inline;
     width: 50%;
+    padding: 0;
+    float: left;
 }
 
 .searchBar form {
-    width: 100%;
+    display: inline;
+    width: 40%;
+    height: 5rem;
+    background-color: red;
+    float: left;
+    /*padding: 0.2rem;
     /*margin: 1rem auto;*/
+}
+
+.searchBar input {
+    width: 100%;
+    margin:1.5rem 0;
+    font-size: 2rem;
 }

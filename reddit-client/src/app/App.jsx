@@ -10,8 +10,12 @@ function App() {
       <div>
         <SearchBar />
         <main>
-          <Articles />
-          <Categories />
+          <div id="articles">
+            <Articles />
+          </div>
+          <div id="categories">
+            <Categories />
+          </div>
         </main>
       </div>
     </>

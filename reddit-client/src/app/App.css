@@ -3,6 +3,24 @@
   padding: 0;
   text-align: center;
   font-family: 'reddit sans';
+  width: 100%;
 }
 
+#articles {
+  background-color: blue;
+  flex-grow: 3;
+}
 
+#categories {
+  flex-grow: 1;
+  border-radius: 20px;
+  border: 1px #ff4500 solid;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-content: stretch;
+  gap: 1%;
+  padding: 1%;
+}

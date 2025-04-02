@@ -5,7 +5,7 @@ import Categories from '../features/categories/Categories';
 
 function App() {
   
-  const articles = ["Article 1","Article 2","Article 3","Article 4","Article 5"];
+  const articles = ["Article 1","Article 2","Article 3","Article 4","Article 5","Article 6", "Article 7"];
 
   return (
     <>

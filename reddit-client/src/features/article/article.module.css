@@ -1,3 +1,8 @@
 .article {
     background-color: none;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px #ff4500 solid;
+    margin: 1%;
+    padding: 1%;
 }

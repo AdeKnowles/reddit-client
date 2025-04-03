@@ -7,16 +7,17 @@
 }
 
 #articles {
-  flex-grow: 3;
   flex-direction: row;
   gap: 1%;
   min-height: 80vh;
+  width: 75%;
 }
 
 #categories {
-  flex-grow: 1;
   border-radius: 20px;
   border: 1px #ff4500 solid;
+  width: 25%;
+  margin: 0.7%;
 }
 
 main {

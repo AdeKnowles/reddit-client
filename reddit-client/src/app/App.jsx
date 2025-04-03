@@ -2,11 +2,12 @@ import './App.css';
 import SearchBar from '../features/searchBar/SearchBar';
 import Article from '../features/article/Article';
 import Categories from '../features/categories/Categories';
+import redditExampleData from '../assets/redditExampleData.json';
 
 function App() {
   
-  const articles = ["Article 1","Article 2","Article 3","Article 4","Article 5","Article 6", "Article 7"];
-
+  const articles = redditExampleData.data.children;
+  console.log(articles);
   return (
     <>
       <div>

@@ -6,3 +6,28 @@
     margin: 1%;
     padding: 1%;
 }
+
+.article img {
+    width: 80%;
+}
+
+.article h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    margin: 2%;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.info img{
+    height: 1rem;
+    width: 1rem
+}
+
+.info span{
+    display: flex;
+}

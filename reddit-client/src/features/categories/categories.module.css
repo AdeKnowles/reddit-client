@@ -1,3 +1,14 @@
 .categories {
     background-color: none;
 }
+
+.categories h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5%;
+}
+
+.categories li{
+    text-align: left;
+    padding: 5%;
+}

@@ -27,3 +27,17 @@ main {
   gap: 1%;
   padding: 1%;
 }
+
+@media screen and (max-width:600px) {
+  main {
+      flex-flow: column;
+  }
+
+  #articles {
+    width: 96%;
+  }
+
+  #categories {
+    width: 98%;
+  }
+}

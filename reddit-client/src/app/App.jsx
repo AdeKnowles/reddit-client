@@ -5,11 +5,16 @@ import Categories from '../features/categories/Categories';
 import redditExampleData from '../assets/redditExampleData.json';
 import {useSelector} from 'react-redux';
 import { selectSubreddits } from '../features/categories/categoriesSlice';
+import { selectReddits } from '../features/article/articleSlice';
 
 function App() {
   
-  const articles = redditExampleData.data.children;
   const subreddits = useSelector(selectSubreddits);
+  const importArticles = useSelector(selectReddits);
+  //const articles = redditExampleData.data.children;
+  const articles = importArticles[0].data.children;
+  console.log(importArticles[0].data.children);
+  console.log(articles);
   
   return (
     <>

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const subredditJsonFile = await fetch("https://www.reddit.com/reddits.json");
-
 const subredditData = await subredditJsonFile.json();
 const refinedSubredditData = [];
 subredditData.data.children.forEach(subreddit => {
@@ -12,9 +11,6 @@ subredditData.data.children.forEach(subreddit => {
         link: subreddit.data.url
     });    
 });
-console.log(subredditData.data.children);
-console.log(refinedSubredditData);
-
 export const categoriesSlice = createSlice({
     name: 'subreddits',
     initialState: {

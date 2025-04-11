@@ -4,6 +4,9 @@ import './index.css';
 import {Provider} from 'react-redux';
 import App from './app/App.jsx';
 import store from './assets/store.jsx';
+import { fetchArticles } from './features/article/articleSlice.jsx';
+
+store.dispatch(fetchArticles());
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

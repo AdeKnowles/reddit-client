@@ -2,25 +2,37 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialRedditArticles = "https://www.reddit.com/.json";
 
+export const fetchArticles = createAsyncThunk(
+    "article/fetchArticles", 
+    async(_, {rejectWithValue}) => {
+        try{
+            const response = await fetch(initialRedditArticles);
+            if(!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const allRawData = await response.json();
+            if(!allRawData?.data?.children) {
+                throw new Error("Invalid Reddit API response structure");
+            }
 
-export const fetchArticles = createAsyncThunk("article/fetchArticles", async() => {
-    const externalJsonFile = await fetch(initialRedditArticles);
-    const rawData = await externalJsonFile.json();
-    /*const refinedData = [];
-    rawData.data.children.forEach(reddit => {
-        refinedData.push({
-            id: reddit.data.id,
-            subReddit: reddit.data.subreddit,
-            subRedditLink: "https://reddit.com/r/"+reddit.data.subreddit,
-            imageSrc: reddit.data.url,
-            author: reddit.data.author,
-            authorLink: "https://reddit.com/u/"+reddit.data.author,
-            numComments: reddit.data.num_comments
-        });    
-    });
-    return refinedData;*/
-    return rawData;
-})
+            const refinedData = allRawData.data.children.map(reddit => ({
+                id: reddit.data.id,
+                title: reddit.data.title,
+                subReddit: reddit.data.subreddit,
+                subRedditLink: `https://reddit.com/r/${reddit.data.subreddit}`,
+                imageSrc: reddit.data.url,
+                author: reddit.data.author,
+                authorLink: `https://reddit.com/u/${reddit.data.author}`,
+                numComments: reddit.data.num_comments
+            }));
+            console.log(refinedData);
+            return refinedData;
+        } catch (error) {
+            console.error("Failed to fetch articles:", error);
+            return rejectWithValue(error.message || "Unknown error");
+        }
+    }
+);
 
 
 export const articleSlice = createSlice({
@@ -40,7 +52,7 @@ export const articleSlice = createSlice({
         .addCase(fetchArticles.fulfilled, (state, action) => {
             state.isLoadingArticles = false;
             state.failedToLoadArticles = false;
-            state.articles.push(action.payload);
+            state.articles = action.payload;
         })
         .addCase(fetchArticles.rejected, (state) => {
             state.isLoadingArticles = false;

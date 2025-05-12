@@ -14,18 +14,21 @@ export const fetchArticles = createAsyncThunk(
             if(!allRawData?.data?.children) {
                 throw new Error("Invalid Reddit API response structure");
             }
-
+            
             const refinedData = allRawData.data.children.map(reddit => ({
                 id: reddit.data.id,
                 title: reddit.data.title,
                 subReddit: reddit.data.subreddit,
                 subRedditLink: `https://reddit.com/r/${reddit.data.subreddit}`,
                 imageSrc: reddit.data.url,
+                videoSrc: reddit.data.secure_media !== null ? reddit.data.secure_media.reddit_video.scrubber_media_url : reddit.data.url,
                 author: reddit.data.author,
                 authorLink: `https://reddit.com/u/${reddit.data.author}`,
-                numComments: reddit.data.num_comments
+                numComments: reddit.data.num_comments,
+                secure_media: reddit.data.secure_media,
+                url: reddit.data.url
             }));
-            console.log(refinedData);
+            console.log(allRawData);
             return refinedData;
         } catch (error) {
             console.error("Failed to fetch articles:", error);

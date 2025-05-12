@@ -3,8 +3,9 @@ import styles from  "./article.module.css";
 import commentLogo from "../../assets/comment-png-1.png";
 
 export default function Article(props) {
-    const {id, title, subReddit, subRedditLink, imageSrc, author, authorLink, numComments} = props.article;
+    const {id, title, subReddit, subRedditLink, imageSrc, videoSrc, author, authorLink, numComments, secure_media, url} = props.article;
     const [imageError, setImageError] = useState(false);
+    console.log(` ${secure_media}`);
     return (
         <div className={styles.article}>
             <h1>{title}</h1>
@@ -14,6 +15,14 @@ export default function Article(props) {
                     alt="Article"
                     onError={() => setImageError(true)}>
                 </img>
+            )}
+            {imageError && secure_media !== null && (
+                <video width="80%" height="80%" controls autoPlay>
+                    <source src={videoSrc} type="video/mp4"/>
+                </video>
+            )}
+            {imageError && secure_media == null && (
+                <a href={url}>{url}</a>                
             )}
             <div className={styles.info}>
                 <a href={authorLink} target="_blank"><h3>{author}</h3></a>

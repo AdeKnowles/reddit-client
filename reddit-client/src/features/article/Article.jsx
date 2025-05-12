@@ -5,7 +5,6 @@ import commentLogo from "../../assets/comment-png-1.png";
 export default function Article(props) {
     const {id, title, subReddit, subRedditLink, imageSrc, videoSrc, author, authorLink, numComments, secure_media, url} = props.article;
     const [imageError, setImageError] = useState(false);
-    console.log(` ${secure_media}`);
     return (
         <div className={styles.article}>
             <h1>{title}</h1>

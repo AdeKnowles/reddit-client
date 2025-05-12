@@ -28,7 +28,6 @@ export const fetchArticles = createAsyncThunk(
                 secure_media: reddit.data.secure_media,
                 url: reddit.data.url
             }));
-            console.log(allRawData);
             return refinedData;
         } catch (error) {
             console.error("Failed to fetch articles:", error);

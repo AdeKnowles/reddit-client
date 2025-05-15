@@ -18,6 +18,12 @@
     margin: 2%;
 }
 
+.article h2 {
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: #ff4500;
+}
+
 .info {
     display: flex;
     justify-content: space-around;
@@ -36,11 +42,19 @@
     .article h1 {
         font-size: 1.5rem;
     }
+
+    .article h2 {
+        font-size: 1.125rem;
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width:700px) {
     .article h1 {
         font-size: 1.2rem;
+    }
+
+    .article h2 {
+        font-size: 0.9rem;
     }
 
     .article h3 {
@@ -55,6 +69,10 @@
 
     .article h1 {
         font-size: 1rem;
+    }
+
+    .article h2 {
+        font-size: 0.75rem;
     }
 
     .article h3 {

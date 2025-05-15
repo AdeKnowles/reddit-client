@@ -9,7 +9,15 @@ export default function Categories(props) {
             <h2>Subreddits</h2>
             <ul>
                 {props.subreddits.map((subreddit)=>(
-                    <li><a href={subreddit.link} target="_blank"><img src={subreddit.icon==''?redditLogo:subreddit.icon}></img> {subreddit.name}</a></li>
+                    <li key={subreddit.id}>
+                        <a href={subreddit.link} target="_blank">
+                            <img 
+                                src={subreddit.icon==''?redditLogo:subreddit.icon}
+                                alt={`${subreddit.name} icon`}
+                            />
+                            {subreddit.name}
+                        </a>
+                    </li>
                 ))}
             </ul>
         </section>

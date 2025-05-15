@@ -14,14 +14,14 @@ export const fetchArticles = createAsyncThunk(
             if(!allRawData?.data?.children) {
                 throw new Error("Invalid Reddit API response structure");
             }
-            
+            console.log(allRawData);
             const refinedData = allRawData.data.children.map(reddit => ({
                 id: reddit.data.id,
                 title: reddit.data.title,
                 subReddit: reddit.data.subreddit,
                 subRedditLink: `https://reddit.com/r/${reddit.data.subreddit}`,
                 imageSrc: reddit.data.url,
-                videoSrc: reddit.data.secure_media !== null ? reddit.data.secure_media.reddit_video.scrubber_media_url : reddit.data.url,
+                videoSrc: reddit.data.media?.reddit_video?.scrubber_media_url || null,
                 author: reddit.data.author,
                 authorLink: `https://reddit.com/u/${reddit.data.author}`,
                 numComments: reddit.data.num_comments,

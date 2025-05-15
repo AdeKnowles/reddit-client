@@ -21,7 +21,7 @@ export default function Article(props) {
                 </video>
             )}
             {imageError && secure_media == null && (
-                <a href={url}>{url}</a>                
+                <a href={url}><h2>Reddit Article</h2></a>                
             )}
             <div className={styles.info}>
                 <a href={authorLink} target="_blank"><h3>{author}</h3></a>

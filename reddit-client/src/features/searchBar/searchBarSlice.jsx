@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const searchbarSlice = createSlice({
-  name: 'searchbar',
+  name: 'searchBar',
   initialState,
   reducers: {
     setQuery: (state, action) => {
@@ -18,6 +18,6 @@ const searchbarSlice = createSlice({
 });
 
 export const { setQuery, clearQuery } = searchbarSlice.actions;
-export const selectQuery = (state) => searchbarSlice.state;
+export const selectQuery = (state) => state.searchBar.query;
 
 export default searchbarSlice.reducer;

@@ -4,9 +4,12 @@ const initialRedditArticles = "https://www.reddit.com/.json";
 
 export const fetchArticles = createAsyncThunk(
     "article/fetchArticles", 
-    async(_, {rejectWithValue}) => {
+    async(searchTerm, {rejectWithValue}) => {
+        const url = searchTerm
+            ? `https://www.reddit.com/search.json?q=${encodeURIComponent(searchTerm)}`
+            : "https://www.reddit.com/.json";
         try{
-            const response = await fetch(initialRedditArticles);
+            const response = await fetch(url);
             if(!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

@@ -16,7 +16,7 @@ export default function Article(props) {
                 </img>
             )}
             {imageError && secure_media !== null && (
-                <video width="80%" height="80%" controls autoPlay>
+                <video width="20%" height="20%" controls autoPlay>
                     <source src={videoSrc} type="video/mp4"/>
                 </video>
             )}

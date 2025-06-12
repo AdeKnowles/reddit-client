@@ -1,0 +1,53 @@
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]          # rebuild only when main gets new commits
+  # Optional: enable a button in the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read              # checkout needs this
+  pages: write                # allow deployment
+  id-token: write             # allow OIDC authentication
+
+# Prevent two publishes racing each other
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Check out code
+        uses: actions/checkout@v4
+
+      - name: ⚙️  Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20          # pick whatever you tested on
+          cache: 'npm'              # speeds up subsequent runs
+
+      - name: 📦 Install deps
+        run: npm ci
+
+      - name: 🏗️  Build app
+        run: npm run build          # outputs to ./dist by default
+
+      - name: 📤 Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist              # everything inside becomes the site
+
+  deploy:
+    needs: build                    # wait for the build job
+    runs-on: ubuntu-latest
+
+    # A single step, but you still need the job wrapper:
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

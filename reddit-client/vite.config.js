@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react()],
   build:  { target: 'esnext' },  // production build
   esbuild:{ target: 'esnext' },  // dev server
-  // base: '/my-react-app/',     // ← keep or add this if you publish to a repo site
+  base: '/reddit-client/',     // ← keep or add this if you publish to a repo site
 });
